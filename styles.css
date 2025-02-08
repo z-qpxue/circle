@@ -25,10 +25,13 @@ body {
 }
 
 .image-container {
+    background-color: rgb(0, 0, 0, 0);
     position: absolute;
     display: block;
-    top: 921px;
-    left: 202px;
+    top: 918px;
+    left: 203px;
+    width: 504px;
+    height: 202px;
 }
 
 .image-container img {
