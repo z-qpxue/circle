@@ -1,147 +1,60 @@
-@import 'https://cdn.tailwindcss.com';
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap');
-
-/* Base styles */
-:root {
-    --circle-size: 6rem;
-    --circle-border: 4px;
-    --circle-color: rgb(239, 68, 68);
-    --circle-hover-color: rgb(220, 38, 38);
-    --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-}
-
 body {
-    font-family: 'Noto Sans SC', sans-serif;
-    background: white;
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 2rem;
     margin: 0;
+    padding: 0;
 }
 
-.container {
-    width: 100%;
-    max-width: 64rem;
-    margin: 0 auto;
-}
-
-/* Card styles */
-.card {
-    background: #a2b2d1;
-    border-radius: 1rem;
-    box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-}
-
-.card-header {
-    background: var(--primary-gradient);
-    padding: 1.5rem;
-    color: white;
+.background {
     position: relative;
+    width: 900px;
+    height: 1253px;
+    margin: 5px auto;
 }
 
-.card-header h1 {
-    font-size: 1.75rem;
-    font-weight: 700;
-    margin: 0;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.header-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-}
-
-/* Container styles */
-.image-container {
-    position: relative;
+/* 判断（评价） */
+.button1 {
+    position: absolute;
+    left: 623px;
+    width: 126px;
     display: inline-block;
-    margin: 1.5rem;
-    border-radius: 0.75rem;
-    overflow: hidden;
-    cursor: default;
+}
+
+.button2 {
+    top: 0px;
+    width: 126px;
+    text-align: center;
+}
+
+.image-container {
+    position: absolute;
+    display: block;
+    top: 921px;
+    left: 202px;
 }
 
 .image-container img {
-    max-width: 100%;
+    max-width: 100vw;
+    max-height: 100vh;
     display: block;
-    pointer-events: none;
 }
 
-/* Circle annotation styles */
 .circle {
     position: absolute;
-    width: var(--circle-size);
-    height: var(--circle-size);
-    border: var(--circle-border) solid var(--circle-color);
+    width: 57px;
+    height: 57px;
+    border: 4px solid rgb(239, 68, 68);
     border-radius: 50%;
-    margin-top: calc(var(--circle-size) / -2);
-    margin-left: calc(var(--circle-size) / -2);
-    pointer-events: none;
-    animation: circle-appear 0.4s cubic-bezier(0.26, 0.53, 0.74, 1.48);
-}
-
-/* Button styles */
-.btn {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0.75rem 1.5rem;
-    border-radius: 0.5rem;
-    font-weight: 500;
-    transition: all 0.3s ease;
-    border: none;
+    margin-top: -24px;
+    margin-left: -24px;
     cursor: pointer;
-    margin-left: auto;
+    animation: circle-appear 0.4s cubic-bezier(0.26, 0.53, 0.74, 1.48);
+    transition: transform 0.2s ease, border-color 0.2s ease;
 }
 
-.btn-clear {
-    background: #ef4444;
-    color: white;
+.circle:hover {
+    transform: scale(1.1);
+    border-color: rgb(220, 38, 38);
 }
 
-.btn-clear:hover {
-    background: #dc2626;
-    transform: translateY(-1px);
-}
-
-.btn-clear:active {
-    transform: translateY(0);
-}
-
-/* Info section styles */
-.info-section {
-    padding: 1.5rem;
-    background: #f8fafc;
-    border-top: 1px solid #e2e8f0;
-    margin-top: 1rem;
-}
-
-.info-text {
-    color: #64748b;
-    font-size: 0.95rem;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    margin: 0.5rem 0;
-}
-
-.count-badge {
-    display: inline-flex;
-    align-items: center;
-    background: #e2e8f0;
-    padding: 0.25rem 0.75rem;
-    border-radius: 9999px;
-    font-weight: 500;
-    color: #475569;
-    margin-left: 0.5rem;
-}
-
-/* Animations */
 @keyframes circle-appear {
     0% {
         transform: scale(0) rotate(-180deg);
@@ -164,36 +77,4 @@ body {
         transform: scale(0) rotate(180deg);
         opacity: 0;
     }
-}
-
-/* Error message animation */
-@keyframes shake {
-
-    0%,
-    100% {
-        transform: translateX(0);
-    }
-
-    25% {
-        transform: translateX(-4px);
-    }
-
-    75% {
-        transform: translateX(4px);
-    }
-}
-
-.error-message {
-    animation: shake 0.4s ease-in-out;
-    color: #ef4444;
-    font-weight: 500;
-    margin-left: 0.5rem;
-}
-
-.hidden {
-    display: none;
-}
-
-.space-y-2>*+* {
-    margin-top: 0.5rem;
 }
